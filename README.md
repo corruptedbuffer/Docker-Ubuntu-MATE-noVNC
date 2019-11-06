@@ -2,7 +2,7 @@
 
 Dockfile for Ubuntu with MATE desktop and noVNC.
 
-This **Image/Dockerfile** aims to create a container for **Ubuntu 16.04** with **MATE Desktop** and using **TightVNCServer**, **noVNC**, **Ngrok(Optional)** which allow user use browser to log in into this container.
+This **Image/Dockerfile** aims to create a container for **Ubuntu 18.04** with **MATE Desktop** and using **TightVNCServer**, **noVNC**, **Ngrok(Optional)** which allow user use browser to log in into this container.
 
 
 ## How to use?
@@ -10,24 +10,24 @@ This **Image/Dockerfile** aims to create a container for **Ubuntu 16.04** with *
 You can build this **Dockerfile** yourself:
 
 ```
-sudo docker build -t "chenjr0719/ubuntu-mate-novnc" .
+sudo docker build -t corruptedbuffer/ubuntu-novnc .
 ```
 
 Or, just pull my **image**:
 
 ```
-sudo docker pull chenjr0719/ubuntu-mate-novnc
+docker pull corruptedbuffer/ubuntu-novnc
 ```
 
 The default usage of this image is:
 
 ```
-sudo docker run -itd -p 80:6080 chenjr0719/ubuntu-mate-novnc
+docker run -itd -p 80:6080 corruptedbuffer/ubuntu-novnc
 ```
 
 Wait for a few second, you can access [http://localhost/vnc.html](http://localhost/vnc.html) and see this screen:
 
-![alt text](https://github.com/chenjr0719/Docker-Ubuntu-MATE-noVNC/raw/master/noVNC.png "vnc.html")
+![alt text](https://github.com/corruptedbuffer/Docker-Ubuntu-MATE-noVNC/raw/master/noVNC.png "vnc.html")
 
 
 ### Password
@@ -42,7 +42,7 @@ And you can use this password to log in into this container.
 
 After log in, you can see this screen:
 
-![alt text](https://github.com/chenjr0719/Docker-Ubuntu-MATE-noVNC/raw/master/desktop.png "MATE desktop")
+![alt text](https://github.com/corruptedbuffer/Docker-Ubuntu-MATE-noVNC/raw/master/desktop.png "MATE desktop")
 
 
 ## Arguments
@@ -53,7 +53,7 @@ This image contains 3 input argument:
 
    You can set your own user password as you like:
    ```
-   sudo docker run -itd -p 80:6080 -e PASSWORD=$YOUR_PASSWORD chenjr0719/ubuntu-mate-novnc
+   sudo docker run -itd -p 80:6080 -e PASSWORD=$YOUR_PASSWORD corruptedbuffer/ubuntu-novnc
    ```
    Now, you can user your own password to log in.
 
@@ -61,7 +61,7 @@ This image contains 3 input argument:
 
    In default, the user **ubuntu** will not be the sudoer, but if you need, you can use this command:
    ```
-   sudo docker run -itd -p 80:6080 -e SUDO=yes chenjr0719/ubuntu-mate-novnc
+   sudo docker run -itd -p 80:6080 -e SUDO=yes corruptedbuffer/ubuntu-novnc
    ```
 
    This command will grant the **sudo** to user **ubuntu**.
@@ -74,7 +74,7 @@ This image contains 3 input argument:
    See "man sudo_root" for details.
    ```
 
-   ![alt text](https://github.com/chenjr0719/Docker-Ubuntu-MATE-noVNC/raw/master/sudo.png "sudo")
+   ![alt text](https://github.com/corruptedbuffer/Docker-Ubuntu-MATE-noVNC/raw/master/sudo.png "sudo")
 
    **Caution!!** allow your user as sudoer may cause security issues, use it carefully.
 
@@ -87,7 +87,7 @@ This image contains 3 input argument:
    To enable Ngrok, use following command:
 
    ```
-   sudo docker run -itd -p 80:6080 -e NGROK=yes chenjr0719/ubuntu-mate-novnc
+   sudo docker run -itd -p 80:6080 -e NGROK=yes corruptedbuffer/ubuntu-novnc
    ```
 
    And find the link address:
